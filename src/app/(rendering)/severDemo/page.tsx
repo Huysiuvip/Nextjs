@@ -11,7 +11,7 @@ import Faker from '@/components/Faker'
 const ServerDemoPage = () => {
   return (
 <div>
-  <h1>Parent: <Faker/></h1>   
+  <Parent />
 </div>
   )
 }

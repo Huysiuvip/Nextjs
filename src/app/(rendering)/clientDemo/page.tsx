@@ -5,12 +5,16 @@
 import React from 'react'
 import {  faker } from '@faker-js/faker'
 import Parent from '@/components/Parent'
+import ReactUse from '@/components/ReactUse'
+
+import dynamic from 'next/dynamic'
+import ClientSelect from '@/components/ClientSelect'
+
 const ClientDemo = () => {
   const name = faker.person.fullName()
   return (
     <div>
-      <h1>{name}</h1>
-      <Parent />
+      <ClientSelect/>
     </div>
   )
 }

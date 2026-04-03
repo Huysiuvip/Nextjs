@@ -7,8 +7,10 @@ const Parent = () => {
   return (
     <div>
         <h1>Parent</h1>
-        <GrandChild />
-        <Child />
+       {/* Truyền sever component thông qua props tránh mất đi ưu thế của server component */}
+        <Child>
+           <GrandChild />
+        </Child>
     </div>
   )
 }
