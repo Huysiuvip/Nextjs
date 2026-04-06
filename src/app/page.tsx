@@ -1,15 +1,12 @@
+export default function Home() {
+  // eslint-disable-next-line react-hooks/purity
+  // const shouldThrow = Math.random() < 0.5;
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>
-        <h1>RootLayout</h1>
-        {children}
-      </body>
-    </html>
-  );
+  // console.log(shouldThrow);
+
+  // if (shouldThrow) {
+  //   throw Error("fdfdfd");
+  // }
+
+  return <h1>home page</h1>;
 }

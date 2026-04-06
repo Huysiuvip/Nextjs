@@ -1,5 +1,6 @@
 import { cache } from "react";
 import { delay } from ".";
+import { NextResponse } from "next/server";
 
 export type User = {
   id: number;
@@ -20,6 +21,9 @@ const users: User[] = [
   { id: 9, name: "Phan Ngọc Mai", username: "mai.phan", email: "mai@gmail.com" },
   { id: 10, name: "Đỗ Khánh Vy", username: "vy.do", email: "vy@gmail.com" },
 ];
+export async function GET() {
+  return NextResponse.json(users);
+}
 
 export type Post = {
   id: number;
