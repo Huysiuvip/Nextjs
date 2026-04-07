@@ -1,6 +1,15 @@
 import { cache } from "react";
 import { delay } from ".";
-import { NextResponse } from "next/server";
+import fs from "fs/promises";
+import path from "path";
+
+const DB_PATH = path.join(process.cwd(), "src/lib/db.json");
+console.log(DB_PATH);
+
+async function readFullDb() {
+  const data = await fs.readFile(DB_PATH, "utf-8");
+  return JSON.parse(data);
+}
 
 export type User = {
   id: number;
@@ -21,9 +30,6 @@ const users: User[] = [
   { id: 9, name: "Phan Ngọc Mai", username: "mai.phan", email: "mai@gmail.com" },
   { id: 10, name: "Đỗ Khánh Vy", username: "vy.do", email: "vy@gmail.com" },
 ];
-export async function GET() {
-  return NextResponse.json(users);
-}
 
 export type Post = {
   id: number;
@@ -56,6 +62,7 @@ const todos: Todo[] = Array.from({ length: 20 }).map((_, i) => ({
 // --------------------
 // Database functions
 // --------------------
+// users
 export const getUsers = cache(async () => {
   await delay(2000);
   return users;
@@ -65,6 +72,7 @@ export async function getUserById(id: number) {
   return users.find((user) => user.id === id);
 }
 
+// posts
 export async function getPosts() {
   await delay(2000);
   return posts;
@@ -74,11 +82,37 @@ export async function getPostsByUser(userId: number) {
   return posts.filter((post) => post.userId === userId);
 }
 
-export async function getTodos() {
-  await delay(2000);
-  return todos;
+// todos
+export async function getTodos(): Promise<Todo[]> {
+  const db = await readFullDb();
+  return db.todos;
 }
 
-export async function getTodosByUser(userId: number) {
-  return todos.filter((todo) => todo.userId === userId);
+export async function createTodo(title: string, userId: number = 1) {
+  await delay(2000);
+  const db = await readFullDb();
+
+  const newTodo = {
+    id: Date.now(),
+    userId,
+    title,
+    completed: false,
+  };
+
+  db.todos.push(newTodo);
+  await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2));
+
+  return newTodo;
+}
+
+export async function updateTodoStatus(id: number, completed: boolean) {
+  const db = await readFullDb();
+
+  db.todos = db.todos.map((todo: any) =>
+    todo.id === id ? { ...todo, completed } : todo,
+  );
+
+  await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2));
+
+  return true;
 }

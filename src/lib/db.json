@@ -1,0 +1,70 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Mua thịt bò và rau",
+      "completed": true
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "title": "Soạn slide bài giảng Next.js cho buổi tối",
+      "completed": true
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "title": "Gửi email báo cáo tiến độ dự án cho khách hàng",
+      "completed": false
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "title": "Đi tập Gym ít nhất 45 phút",
+      "completed": false
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "title": "Đóng tiền điện và tiền nước tháng này",
+      "completed": false
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "title": "Hẹn cafe với nhóm bạn đại học lúc 19h",
+      "completed": true
+    },
+    {
+      "id": 7,
+      "userId": 2,
+      "title": "Review code cho học viên lớp React cơ bản",
+      "completed": true
+    },
+    {
+      "id": 8,
+      "userId": 3,
+      "title": "Đăng ký khóa học tiếng Anh giao tiếp",
+      "completed": false
+    },
+    {
+      "id": 9,
+      "userId": 3,
+      "title": "Mua quà sinh nhật cho mẹ",
+      "completed": true
+    },
+    {
+      "id": 10,
+      "userId": 3,
+      "title": "Đọc xong 2 chương sách Clean Code",
+      "completed": false
+    },
+    {
+      "id": 1775489460748,
+      "userId": 1,
+      "title": "todo",
+      "completed": false
+    }
+  ]
+}

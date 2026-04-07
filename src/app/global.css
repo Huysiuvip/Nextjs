@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-roboto-mono), system-ui, sans-serif;
+  --font-display: var(--font-helvetica), system-ui, sans-serif;
+}
+
+@layer base {
+  h1 {
+    @apply text-3xl md:text-5xl font-bold tracking-tight text-gray-900;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl font-semibold tracking-tight text-gray-900;
+  }
+
+  h3 {
+    @apply text-xl md:text-3xl font-semibold text-gray-800;
+  }
+
+  h4 {
+    @apply text-lg font-medium text-gray-800;
+  }
+
+  .link {
+    @apply border px-4 py-2 rounded-md inline-block m-4;
+  }
+
+  input {
+    @apply min-w-md flex-1 px-3 py-2 border border-gray-300 rounded outline-none focus:border-gray-500 transition-colors;
+  }
+
+  button {
+    @apply px-5 py-2 bg-black text-white cursor-pointer rounded hover:bg-gray-800 transition-colors;
+  }
+
+  form {
+    @apply flex items-center gap-2 m-8 max-w-md;
+  }
+
+  input {
+    @apply w-full p-2 border rounded-lg focus:outline-none focus:ring-2;
+  }
+  p {
+    @apply text-black;
+  }
+
+  .container {
+    @apply p-8 w-full mx-auto flex flex-col gap-8 justify-center items-center;
+  }
+}
